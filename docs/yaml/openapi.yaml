@@ -35,3 +35,20 @@ paths:
           description: 找到文章
         "404":
           description: 找不到文章
+  /articles:
+  post:
+    tags:
+      - Articles
+    description: 建立新文章
+    requestBody:
+      description: 要新增的文章資料
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: "./article.json#/definitions/article"
+    responses:
+      "201":
+        description: 成功建立文章
+      "400":
+        description: 請求格式錯誤
