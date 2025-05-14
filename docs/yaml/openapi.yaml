@@ -11,6 +11,9 @@ info:
     url: "https://www.apache.org/licenses/LICENSE-2.0.html"
 
 servers:
+  - name: Users
+    description: API endpoints for user management.
+
   - url: "http://localhost:10888"
     description: Development server
 
