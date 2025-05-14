@@ -11,24 +11,23 @@ info:
     url: "https://www.apache.org/licenses/LICENSE-2.0.html"
 
 servers:
-  - name: Users
-    description: API endpoints for user management.
-
   - url: "http://localhost:10888"
     description: Development server
 
 tags:
+  - name: Users
+    description: API endpoints for user management.
   - name: Articles
-    description: 操作文章的 API
+    description: Access and perform CRUD operations for blog
 
 paths:
   /articles:
     post:
       tags:
         - Articles
-      description: 建立新文章
+      description: Create a new article
       requestBody:
-        description: 要新增的文章資料
+        description: The article information to be added
         required: true
         content:
           application/json:
@@ -36,9 +35,9 @@ paths:
               $ref: "./article.json#/definitions/article"
       responses:
         "201":
-          description: 成功建立文章
+          description: Successfully created article
         "400":
-          description: 請求格式錯誤
+          description: Request format error
 
   /articles/{id}:
     parameters:
@@ -47,22 +46,22 @@ paths:
         required: true
         schema:
           type: integer
-        description: 文章的數字 ID
+        description: The numeric ID of the article
     get:
       tags:
         - Articles
-      description: 根據 ID 取得文章
+      description: Get article by ID
       responses:
         "200":
-          description: 找到文章
+          description: Found the article
         "404":
-          description: 找不到文章
+          description: Article not found
     put:
       tags:
         - Articles
-      description: 根據 ID 更新文章
+      description: Update article by ID
       requestBody:
-        description: 要更新的文章資料
+        description: The article information to be updated
         required: true
         content:
           application/json:
@@ -70,17 +69,17 @@ paths:
               $ref: "./article.json#/definitions/article"
       responses:
         "200":
-          description: 成功更新文章
+          description: Successfully updated the article
         "400":
-          description: 請求資料錯誤
+          description: Request data error
         "404":
-          description: 找不到文章
+          description: Article not found
     delete:
       tags:
         - Articles
-      description: 根據 ID 刪除文章
+      description: Delete article by ID
       responses:
         "200":
-          description: 成功刪除文章
+          description: Successfully deleted the article
         "404":
-          description: 找不到文章
+          description: Article not found
