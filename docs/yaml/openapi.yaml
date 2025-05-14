@@ -1,0 +1,37 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Back End Demonstration API
+  description: A simple blog API.
+  contact:
+    name: Kwok Chun Hang
+    email: kwokc289@yahoo.com
+  license:
+    name: Apache 2.0
+    url: "https://www.apache.org/licenses/LICENSE-2.0.html"
+servers:
+  - url: "http://localhost:10888"
+    description: Development server
+
+tags:
+  - name: Articles
+    description: 操作文章的 API
+
+paths:
+  /articles/{id}:
+    parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: integer
+        description: 文章的數字 ID
+    get:
+      tags:
+        - Articles
+      description: 根據 ID 取得文章
+      responses:
+        "200":
+          description: 找到文章
+        "404":
+          description: 找不到文章
