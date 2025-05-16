@@ -1,0 +1,17 @@
+{
+  "name": "lab8-api",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "scripts": {
+    "dev": "tsx index.ts"
+  },
+  "dependencies": {
+    "koa": "^2.15.0",
+    "koa-router": "^11.0.2",
+    "koa-static": "^5.0.0",
+    "koa-bodyparser": "^4.4.1"
+  },
+  "devDependencies": {
+    "tsx": "^4.7.2"
+  }
+}
